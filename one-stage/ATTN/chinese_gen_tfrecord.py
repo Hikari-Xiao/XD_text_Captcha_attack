@@ -15,10 +15,8 @@ fill = {'baidu_Chinese':948, 'dajie':2467,  'douban':984, 'renmin':483,'it168':7
 types = type_list[4]
 
 
-# 字符-label字典，最后一位为'#'
-
 #chartolabel在chineseMap.py文件中
-Image_H = 100#生成的record中图片的大小
+Image_H = 100
 Image_W = 300
 
 for tp in range(1,2):

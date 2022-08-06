@@ -3,7 +3,7 @@ import cv2
 import os
 import tensorflow as tf
 import numpy as np
-# 字符-label字典，最后一位为'#'
+
 chartolabel = {'a':0,'b':1,'c':2,'d':3,'e':4,'f':5,'g':6,
                'h':7,'i':8,'j':9,'k':10,'l':11,'m':12,
                'n':13,'o':14,'p':15,'q':16,'r':17,'s':18,
@@ -21,15 +21,15 @@ type_list = ['360', '360_gray',  'apple', 'baidu','baidu_blue','jd', 'qqmail','s
 d_t = {'wiki': 10, 'weibo': 4, 'baidu_red': 4, 'apple': 5,
        'alipay': 4, 'baidu': 4, '360': 5, 'qqmail': 4,
        'jd_grey': 4,'360_gray': 5, 'ms': 6, 'jd': 4, 'jd_white': 4,
-       'baidu_blue': 4, 'sina': 5, 'random_captcha': 10}    # 验证码的单张图文本最长长度
+       'baidu_blue': 4, 'sina': 5, 'random_captcha': 10}    # The maximum length of the text of a CAPTCHA image
 Image_H = 150
 Image_W = 500
-Fill_label = 62  #字符的种类\
+Fill_label = 62  # class num of characters
 
 for tp in range(0,9):
     types = type_list[tp]
     print(types)
-    Seq_length = d_t[types]  # 最大长度
+    Seq_length = d_t[types]
     file_dir = "/home/abc/xcx/captcha/{0}/train/".format(types)
     files_paths = os.listdir(file_dir)
     tf_writer = tf.python_io.TFRecordWriter("/home/abc/LAB_workspace/attention_cap/tfrecords/{0}/8500_train.record".format(types))
@@ -40,10 +40,10 @@ for tp in range(0,9):
         i += 1
         if i>8500-1:
             break
-        tmp_img = cv2.imread(file_dir+p)#读取该图片
-        # tmp_chrs = p.split("_")[1].split("_")[0]#获取该字符
-        tmp_chrs = p.split("_")[1].split(".")[0]#获取该字符
-        tmp_labels = [chartolabel[c] for c in tmp_chrs]#获取该字符的序号
+        tmp_img = cv2.imread(file_dir+p)
+        # tmp_chrs = p.split("_")[1].split("_")[0]
+        tmp_chrs = p.split("_")[1].split(".")[0]
+        tmp_labels = [chartolabel[c] for c in tmp_chrs]
         while len(tmp_labels) != Seq_length:
             tmp_labels.append(Fill_label)
         #

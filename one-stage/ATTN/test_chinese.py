@@ -75,7 +75,6 @@ file_dir = "yidun/test1/"
 files_paths = os.listdir(file_dir)
 files_paths.sort()
 from chineseMap_yidun import label_to_char # for chinese
-#label_to_char ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 answer_file = open("yidun/answer_yidun1.txt", 'w')
 right = 0 # record test set right number
 imgs = []

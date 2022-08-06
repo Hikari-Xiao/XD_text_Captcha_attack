@@ -11,8 +11,8 @@ os.environ['CUDA_VISIBLE_DEVICES']='0'
 
 # type_list = ['360', '360_gray', 'alipay', 'apple', 'baidu', 'baidu_blue', 'baidu_red',
 #              'jd', 'jd_grey', 'jd_white', 'ms', 'qqmail', 'sina', 'weibo', 'wiki']
-type_list = ['baidu_Chinese', 'dajie',  'douban', 'renmin','it168','random'] #中文
-types = type_list[4]
+type_list = ['baidu_Chinese', 'dajie',  'douban', 'renmin','it168','random'] #chinese
+types = type_list[4] # --------------------------need to be edit -----------------------------------
 kind = "10w"
 # types = "test"
 
@@ -78,8 +78,8 @@ tf.summary.scalar("net_accuracy",net_accuracy)
 tf.summary.scalar("net_acc",net_acc)
 merge_summary = tfsummary.merge_all_summaries()
 #summary_writer = tf.summary.FileWriter("train_log/train_log_chinese1",sess.graph)
-#微调
-saver.restore(sess,"model/chinese/random/attention_5d_best_0.9959375.data")
+# transfer training
+# saver.restore(sess,"model/chinese/random/attention_5d_best_0.9959375.data")
 
 #load data
 data_train_img,data_train_labels = net_read_data("tfrecords/chinese/{0}/fine/{1}_train.record".format(types,kind),
