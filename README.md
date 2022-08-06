@@ -1,5 +1,5 @@
 # XD_text_Captcha_attack
- This code is the source code for <An Experimental Investigation of Text-based CAPTCHA Attacks and Their Robustness>
+ This code is the source code for paper \<An Experimental Investigation of Text-based CAPTCHA Attacks and Their Robustness\>
 
 ## Dataset
 We provide 22 text CAPTCHAs collected from popular websites, including 6 Chinese-based CAPTCHAs and 16 English-based CAPTCHAs.
